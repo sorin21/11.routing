@@ -3,7 +3,7 @@ import React from "react";
 import "./Post.css";
 
 const post = props => {
-  // console.log(props);
+  console.log('props post: ', props);
   return (
     <article className="Post" onClick={props.clicked}>
       <h1>{props.title}</h1>
@@ -14,4 +14,7 @@ const post = props => {
   );
 };
 
+// withRouter is the second option to pass the props: match, history, etc  
+// down to the tree from posts to post, in our case
+// export default withRouter(post);
 export default post;

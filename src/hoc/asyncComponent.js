@@ -7,7 +7,9 @@ const asyncComponent = (importComponent) => {
     }
 
     componentDidMount() {
+      // importComponent is the argument and must be a function
       importComponent()
+      // cmp.default is the component that we load dinamically
         .then(cmp => {
           this.setState({ component: cmp.default });
         });
@@ -15,7 +17,7 @@ const asyncComponent = (importComponent) => {
 
     render() {
       const C = this.state.component;
-
+      // check if C is set, pass any props that this component needs
       return C ? <C {...this.props} /> : null;
     }
   }

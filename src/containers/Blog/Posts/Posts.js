@@ -47,6 +47,11 @@ class Posts extends Component {
       posts = this.state.posts.map(post => {
         return(
           // <Link to={'/' + post.id} key={post.id} >
+          // Pass all the props from here: match, history 
+          // to the child Post, with {...this.props}
+          // because in normal way props are not passed
+          // down to the tree
+          // You can pass a specific prop: match={this.props.match}
             <Post 
               key={post.id}
               title={post.title} 
@@ -60,6 +65,7 @@ class Posts extends Component {
 
     return(
       <div>
+        {/* Output here the posts {posts} */}
         <section className="Posts">{posts}</section>
         <Route path={this.props.match.url + '/:id'} component={FullPost} />
       </div>
